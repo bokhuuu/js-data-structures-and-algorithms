@@ -80,6 +80,16 @@ class LinkedList {
     }
     return temp;
   }
+
+  set(index, value) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -88,3 +98,6 @@ myLinkedList.unshift(0);
 myLinkedList.shift();
 myLinkedList;
 myLinkedList.get(1);
+myLinkedList.push(4);
+myLinkedList.set(2, 3);
+myLinkedList;
