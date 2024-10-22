@@ -46,16 +46,21 @@ class LinkedList {
     }
     return temp;
   }
+
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
-
-// Tests for pop method
-console.log(myLinkedList.pop()); // Should log the node with value 2
-console.log(myLinkedList); // Should show that myLinkedList now has 1 node
-
-console.log(myLinkedList.pop()); // Should log the node with value 1
-console.log(myLinkedList); // Should show that myLinkedList is now empty
-
-console.log(myLinkedList.pop()); // Should log undefined (list is now empty)
+myLinkedList.unshift(0);
