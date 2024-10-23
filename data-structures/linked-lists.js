@@ -102,6 +102,18 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    let temp = this.get(index);
+    let before = this.get(index - 1);
+    before.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -115,4 +127,6 @@ myLinkedList.set(2, 3);
 myLinkedList;
 myLinkedList;
 myLinkedList.insert(2, 4);
+myLinkedList;
+myLinkedList.remove(2);
 myLinkedList;
