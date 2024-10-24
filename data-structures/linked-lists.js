@@ -129,6 +129,19 @@ class LinkedList {
     }
     return this;
   }
+
+  findMiddleNode() {
+    if (!this.head) return null;
+
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast !== null && fast.next !== null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    return slow;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -146,3 +159,4 @@ myLinkedList;
 myLinkedList.remove(2);
 myLinkedList;
 myLinkedList.reverse();
+console.log(myLinkedList.findMiddleNode());
