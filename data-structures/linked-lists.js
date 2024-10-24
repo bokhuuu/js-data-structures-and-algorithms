@@ -142,6 +142,21 @@ class LinkedList {
     }
     return slow;
   }
+
+  hasLoop() {
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast !== null && fast.next !== null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow === fast) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -160,3 +175,6 @@ myLinkedList.remove(2);
 myLinkedList;
 myLinkedList.reverse();
 console.log(myLinkedList.findMiddleNode());
+myLinkedList.reverse();
+console.log(myLinkedList);
+myLinkedList.hasLoop();
