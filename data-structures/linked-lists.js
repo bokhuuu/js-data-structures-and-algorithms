@@ -157,6 +157,25 @@ class LinkedList {
     }
     return false;
   }
+
+  findKthFromEnd(k) {
+    let slow = this.head;
+    let fast = this.head;
+
+    for (let i = 0; i < k; i++) {
+      if (fast === null) {
+        return null;
+      }
+      fast = fast.next;
+    }
+
+    while (fast !== null) {
+      slow = slow.next;
+      fast = fast.next;
+    }
+
+    return slow;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -174,7 +193,9 @@ myLinkedList;
 myLinkedList.remove(2);
 myLinkedList;
 myLinkedList.reverse();
-console.log(myLinkedList.findMiddleNode());
+// console.log(myLinkedList.findMiddleNode());
 myLinkedList.reverse();
-console.log(myLinkedList);
+// console.log(myLinkedList);
 myLinkedList.hasLoop();
+console.log(myLinkedList);
+console.log(myLinkedList.findKthFromEnd(2));
