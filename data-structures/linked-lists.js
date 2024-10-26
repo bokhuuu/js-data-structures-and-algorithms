@@ -176,6 +176,32 @@ class LinkedList {
 
     return slow;
   }
+
+  partitionList(x) {
+    if (this.head === null) return;
+
+    const dummy1 = new Node(0);
+    const dummy2 = new Node(0);
+    let prev1 = dummy1;
+    let prev2 = dummy2;
+    let current = this.head;
+
+    while (current !== null) {
+      if (current.value < x) {
+        prev1.next = current;
+        prev1 = current;
+      } else {
+        prev2.next = current;
+        prev2 = current;
+      }
+      current = current.next;
+    }
+
+    prev2.next = null;
+    prev1.next = dummy2.next;
+
+    this.head = dummy1.next;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -197,5 +223,11 @@ myLinkedList.reverse();
 myLinkedList.reverse();
 // console.log(myLinkedList);
 myLinkedList.hasLoop();
+// console.log(myLinkedList);
+// console.log(myLinkedList.findKthFromEnd(2));
+myLinkedList.push(7);
+myLinkedList.push(5);
+myLinkedList.push(6);
+myLinkedList.push(4);
 console.log(myLinkedList);
-console.log(myLinkedList.findKthFromEnd(2));
+console.log(myLinkedList.partitionList(5));
