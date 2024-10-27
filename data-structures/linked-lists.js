@@ -202,6 +202,23 @@ class LinkedList {
 
     this.head = dummy1.next;
   }
+
+  removeDuplicates() {
+    let values = new Set();
+    let prev = null;
+    let current = this.head;
+
+    while (current !== null) {
+      if (values.has(current.value)) {
+        prev.next = current.next;
+        this.length--;
+      } else {
+        values.add(current.value);
+        prev = current;
+      }
+      current = current.next;
+    }
+  }
 }
 
 let myLinkedList = new LinkedList(1);
@@ -229,5 +246,10 @@ myLinkedList.push(7);
 myLinkedList.push(5);
 myLinkedList.push(6);
 myLinkedList.push(4);
+// console.log(myLinkedList);
+// console.log(myLinkedList.partitionList(5));
+myLinkedList.push(5);
+myLinkedList.push(6);
 console.log(myLinkedList);
-console.log(myLinkedList.partitionList(5));
+myLinkedList.removeDuplicates();
+console.log(myLinkedList);
