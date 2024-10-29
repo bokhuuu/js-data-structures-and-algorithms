@@ -219,37 +219,52 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  binaryToDecimal() {
+    let num = 0;
+    let current = this.head;
+
+    while (current !== null) {
+      num = num * 2 + current.value;
+      current = current.next;
+    }
+    return num;
+  }
 }
 
 let myLinkedList = new LinkedList(1);
-myLinkedList.push(2);
-myLinkedList.unshift(0);
-myLinkedList.shift();
-myLinkedList;
-myLinkedList.get(1);
-myLinkedList.push(4);
-myLinkedList.set(2, 3);
-myLinkedList;
-myLinkedList;
-myLinkedList.insert(2, 4);
-myLinkedList;
-myLinkedList.remove(2);
-myLinkedList;
-myLinkedList.reverse();
+// myLinkedList.push(2);
+// myLinkedList.unshift(0);
+// myLinkedList.shift();
+// myLinkedList;
+// myLinkedList.get(1);
+// myLinkedList.push(4);
+// myLinkedList.set(2, 3);
+// myLinkedList;
+// myLinkedList;
+// myLinkedList.insert(2, 4);
+// myLinkedList;
+// myLinkedList.remove(2);
+// myLinkedList;
+// myLinkedList.reverse();
 // console.log(myLinkedList.findMiddleNode());
-myLinkedList.reverse();
+// myLinkedList.reverse();
 // console.log(myLinkedList);
-myLinkedList.hasLoop();
+// myLinkedList.hasLoop();
 // console.log(myLinkedList);
 // console.log(myLinkedList.findKthFromEnd(2));
-myLinkedList.push(7);
-myLinkedList.push(5);
-myLinkedList.push(6);
-myLinkedList.push(4);
+// myLinkedList.push(7);
+// myLinkedList.push(5);
+// myLinkedList.push(6);
+// myLinkedList.push(4);
 // console.log(myLinkedList);
 // console.log(myLinkedList.partitionList(5));
-myLinkedList.push(5);
-myLinkedList.push(6);
+// myLinkedList.push(5);
+// myLinkedList.push(6);
+// console.log(myLinkedList);
+// myLinkedList.removeDuplicates();
+// console.log(myLinkedList);
+myLinkedList.push(0);
+myLinkedList.push(1);
 console.log(myLinkedList);
-myLinkedList.removeDuplicates();
-console.log(myLinkedList);
+console.log(myLinkedList.binaryToDecimal());
